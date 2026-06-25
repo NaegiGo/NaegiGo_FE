@@ -1,19 +1,20 @@
 <div align="center">
 
 # 내기고 (NaegiGo)
+
 친구와 함께 목표를 정하고, 못 지키면 벌칙을 받는 내기 챌린지 서비스
+
 </div>
 
 <br/>
 
 ## 🙋🏻‍♀️ 내기고의 FE Developer를 소개합니다!
 
-| <a href="https://github.com/seunghyeonKang"><img src="https://avatars.githubusercontent.com/u/101852433?v=4" width="120px;" alt=""/>|<a href="https://github.com/yeon-yeon1"><img src="https://avatars.githubusercontent.com/u/158417764?v=4" width="120px;" alt=""/></a> |
+| <a href="https://github.com/seunghyeonKang"><img src="https://avatars.githubusercontent.com/u/101852433?v=4" width="120px;" alt=""/> | <a href="https://github.com/yeon-yeon1"><img src="https://avatars.githubusercontent.com/u/158417764?v=4" width="120px;" alt=""/></a> |
 | ------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------ |
-| 강승현 | 노진경 |
+| 강승현                                                                                                                               | 노진경                                                                                                                               |
 
 <br>
-
 
 ## 📊 Insights
 
@@ -185,15 +186,14 @@ develop ← 작업 브랜치
 ```
 📦NaegiGo_FE
  ┣ 📂public
- ┃ ┗ 📜(이미지, 폰트 등 정적 파일)
  ┣ 📂src
  ┃ ┣ 📂app
  ┃ ┃ ┣ 📂(auth)            # 로그인 전 화면 (URL에는 영향 없는 라우트 그룹)
  ┃ ┃ ┃ ┣ 📂login            # /login · 카카오 로그인
- ┃ ┃ ┃ ┗ 📂onboarding/name  # /onboarding/name · 최초 이름 입력
+ ┃ ┃ ┃ ┗ 📂name             # /name · 이름 입력
+ ┃ ┃ ┃   ┗ 📂edit            # /name/edit · 이름 수정
  ┃ ┃ ┣ 📂(main)             # 로그인 후 화면
  ┃ ┃ ┃ ┣ 📜page.tsx          # / · 홈 (내 방 목록)
- ┃ ┃ ┃ ┣ 📂profile/edit      # /profile/edit · 이름 수정
  ┃ ┃ ┃ ┗ 📂rooms
  ┃ ┃ ┃   ┣ 📂new             # /rooms/new · 새 방 만들기
  ┃ ┃ ┃   ┣ 📂join            # /rooms/join · 방 코드 입력
@@ -201,9 +201,12 @@ develop ← 작업 브랜치
  ┃ ┃ ┃     ┣ 📂edit           # /rooms/[roomId]/edit · 규칙 수정
  ┃ ┃ ┃     ┗ 📂checkin        # /rooms/[roomId]/checkin · 체크인(양심/사진 인증)
  ┃ ┃ ┣ 📜layout.tsx
- ┃ ┃ ┗ 📜globals.css
- ┃ ┗ 📂components
- ┃   ┗ 📂common              # 여러 화면에서 공통으로 쓰는 UI
+ ┃ ┃ ┣ 📜globals.css
+ ┃ ┃ ┗ 📜icon.png            # 파비콘 (Next.js 파일 컨벤션)
+ ┃ ┣ 📂components
+ ┃ ┃ ┗ 📂common              # 여러 화면에서 공통으로 쓰는 UI
+ ┃ ┗ 📂fonts
+ ┃   ┗ 📂pretendard          # Pretendard 로컬 폰트 (next/font/local)
  ┣ 📜.editorconfig
  ┣ 📜.env.example
  ┣ 📜.gitignore
@@ -221,8 +224,9 @@ develop ← 작업 브랜치
  ┗ 📜vitest.setup.ts
 ```
 
-- public - 이미지, 폰트 등 정적 파일
+- public - 정적 파일 (현재는 비어있고, 필요할 때 추가)
 - src
   - app - App Router 진입점, `(auth)`/`(main)` 라우트 그룹별로 화면을 분리
   - components - 여러 화면에서 공통으로 쓰는 UI (`common` 등)
+  - fonts - `next/font/local`로 불러오는 로컬 폰트 파일 (Pretendard)
   - (추후 기능이 늘어나면 `hooks`, `apis`, `types`, `utils` 등을 `src` 하위에 추가)
