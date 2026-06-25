@@ -1,0 +1,20 @@
+
+name: "수정 이슈 템플릿"
+description: 수정 작업 이슈
+title: "[Fix] "
+labels: ["fix"]
+
+body:
+  - type: textarea
+    attributes:
+      label: 🛠 수정 내용
+      description: 무엇을 수정하나요?
+      placeholder: 예) 로그인 버튼 클릭 시 에러 수정
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: 🎯 수정 이유
+      description: 왜 수정이 필요한가요?
+      placeholder: 버그 발생 / UX 개선 등

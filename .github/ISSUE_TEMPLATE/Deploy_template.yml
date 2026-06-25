@@ -1,0 +1,19 @@
+name: "배포 이슈 템플릿"
+description: 프론트 배포 관련 이슈
+title: "[Deploy] "
+labels: ["deploy"]
+
+body:
+  - type: textarea
+    attributes:
+      label: 📌 배포 내용
+      description: 무엇을 배포하나요?
+      placeholder: 예) v1.2.0 배포
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: ⚠️ 특이사항
+      description: 확인해야 할 사항이 있다면 작성해주세요.
+      placeholder: 환경변수 변경 / API 수정 등
