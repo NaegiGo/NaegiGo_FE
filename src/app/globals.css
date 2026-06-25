@@ -18,7 +18,7 @@
   --color-primary-foreground: var(--color-primary-foreground);
   --color-kakao: var(--color-kakao);
   --color-kakao-foreground: var(--color-kakao-foreground);
-  --font-sans: var(--font-noto-sans-kr);
+  --font-sans: var(--font-pretendard);
 }
 
 body {
