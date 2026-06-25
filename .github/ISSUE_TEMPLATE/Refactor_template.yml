@@ -1,0 +1,21 @@
+name: "리팩토링 이슈 템플릿"
+description: 코드 구조 개선 및 리팩토링 작업
+title: "[Refactor] "
+labels: ["refactor"]
+
+body:
+  - type: textarea
+    attributes:
+      label: 🔍 리팩토링 대상
+      description: 어떤 부분을 개선하나요?
+      placeholder: 예) 로그인 로직 분리
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: ✨ 개선 목적
+      description: 왜 리팩토링이 필요한가요?
+      placeholder: 가독성 향상 / 중복 제거 / 성능 개선 등
+    validations:
+      required: true

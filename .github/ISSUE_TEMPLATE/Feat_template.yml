@@ -1,0 +1,32 @@
+name: "기능 이슈 템플릿"
+description: 작업 시작 전에 반드시 이슈를 생성해주세요.
+title: "[Feat] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        작성 예시 : "[Feat] 페이지 퍼블리싱"
+  - type: textarea
+    id: feat-description
+    attributes:
+      label: 📄 About
+      description: 해당 이슈에서 작업할 내용을 작성해주세요.
+      placeholder: 설명을 작성해주세요.
+    validations:
+      required: true
+  - type: textarea
+    id: feat-list
+    attributes:
+      label: 📝 To-do
+      description: 해당 이슈와 관련된 할 일을 작성해주세요.
+      placeholder: 목록을 작성해주세요.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: 🎨 Preview
+      description: 작업하고자 하는 내용의 뷰를 첨부해주세요.
+      placeholder: 설명을 작성해주세요.
+    validations:
+      required: false
