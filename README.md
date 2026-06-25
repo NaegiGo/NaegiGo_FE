@@ -8,17 +8,16 @@
 
 ## 🙋🏻‍♀️ 내기고의 FE Developer를 소개합니다!
 
-| <a href="https://github.com/yeon-yeon1"><img src="https://avatars.githubusercontent.com/u/158417764?v=4" width="120px;" alt=""/></a> |
-| ------------------------------------------------------------------------------------------------------------------------------------ |
-| 노진경                                                                                                                               |
+| <a href="https://github.com/seunghyeonKang"><img src="https://avatars.githubusercontent.com/u/101852433?v=4" width="120px;" alt=""/>|<a href="https://github.com/yeon-yeon1"><img src="https://avatars.githubusercontent.com/u/158417764?v=4" width="120px;" alt=""/></a> |
+| ------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------ |
+| 강승현 | 노진경 |
 
 <br>
 
-<!-- repobeats 인사이트 추가하기: https://repobeats.axiom.co 에서 이 repo로 임베드를 생성한 뒤 아래 주석을 이미지로 교체 -->
 
 ## 📊 Insights
 
-<!-- ![Analytics](https://repobeats.axiom.co/api/embed/__REPLACE_ME__.svg "Repobeats analytics image") -->
+![Alt](https://repobeats.axiom.co/api/embed/8b05274b54613fda45a3229b91b696df3140dc8b.svg "Repobeats analytics image")
 
 ## 📚 서비스 소개
 
@@ -138,10 +137,10 @@ develop ← 작업 브랜치
   - 🚧 Chore : 배포, 빌드 등 기타 작업
   - 🔀 Merge : 브랜치 병합
 
-- **형식**: `커밋유형: 상세설명 (#이슈번호)`
+- **형식**: `커밋유형: 상세설명`
 - **예시**:
-  - 🎉 Init: 프로젝트 초기 세팅 (#1)
-  - ✨ Feat: 메인페이지 개발 (#2)
+  - 🎉 Init: 프로젝트 초기 세팅
+  - ✨ Feat: 메인페이지 개발
 
 <br>
 
