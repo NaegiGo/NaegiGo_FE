@@ -186,6 +186,7 @@ develop ← 작업 브랜치
 ```
 📦NaegiGo_FE
  ┣ 📂public
+ ┃ ┗ 📂images                # next/image로 서빙되는 정적 이미지 (로고 등)
  ┣ 📂src
  ┃ ┣ 📂app
  ┃ ┃ ┣ 📂(auth)            # 로그인 전 화면 (URL에는 영향 없는 라우트 그룹)
@@ -203,14 +204,17 @@ develop ← 작업 브랜치
  ┃ ┃ ┣ 📜layout.tsx
  ┃ ┃ ┣ 📜globals.css
  ┃ ┃ ┗ 📜icon.png            # 파비콘 (Next.js 파일 컨벤션)
- ┃ ┣ 📂components
- ┃ ┃ ┗ 📂common              # 여러 화면에서 공통으로 쓰는 UI
- ┃ ┗ 📂fonts
- ┃   ┗ 📂pretendard          # Pretendard 로컬 폰트 (next/font/local)
+ ┃ ┣ 📂assets                 # 디자인 원천 리소스 (아이콘·폰트 등)
+ ┃ ┃ ┣ 📂fonts
+ ┃ ┃ ┃ ┗ 📂pretendard          # Pretendard 로컬 폰트 (next/font/local, 400/500/600/700만 사용)
+ ┃ ┃ ┗ 📂icons                # SVG 아이콘 원본 (SVGR로 컴포넌트처럼 import)
+ ┃ ┗ 📂components
+ ┃   ┗ 📂common              # 여러 화면에서 공통으로 쓰는 UI
  ┣ 📜.editorconfig
  ┣ 📜.env.example
  ┣ 📜.gitignore
  ┣ 📜.lintstagedrc.json
+ ┣ 📜.nvmrc                  # Node 버전 고정
  ┣ 📜.prettierignore
  ┣ 📜.prettierrc.json
  ┣ 📜eslint.config.mjs
@@ -224,9 +228,12 @@ develop ← 작업 브랜치
  ┗ 📜vitest.setup.ts
 ```
 
-- public - 정적 파일 (현재는 비어있고, 필요할 때 추가)
+- public
+  - images - 로고 등 `next/image`로 최적화되는 정적 이미지
 - src
   - app - App Router 진입점, `(auth)`/`(main)` 라우트 그룹별로 화면을 분리
+  - assets - 디자인 원천 리소스
+    - fonts - `next/font/local`로 불러오는 로컬 폰트 (Pretendard)
+    - icons - SVG 아이콘 원본. SVGR로 React 컴포넌트처럼 import해서 Tailwind로 색·크기 제어
   - components - 여러 화면에서 공통으로 쓰는 UI (`common` 등)
-  - fonts - `next/font/local`로 불러오는 로컬 폰트 파일 (Pretendard)
   - (추후 기능이 늘어나면 `hooks`, `apis`, `types`, `utils` 등을 `src` 하위에 추가)
