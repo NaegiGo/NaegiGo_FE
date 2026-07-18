@@ -99,6 +99,50 @@ import { PagePlaceholder } from "@/components/common/PagePlaceholder";
 
 <br>
 
+## 🎨 Design Tokens
+
+디자인 토큰은 [src/app/globals.css](src/app/globals.css)의 `:root`와 `@theme inline` 블록에서 관리합니다. 새 색·타이포는 반드시 이곳에 먼저 등록한 뒤 Tailwind 유틸 클래스로 사용합니다.
+
+### 색상
+
+역할 기반 네이밍(`--color-{역할}-{상태}`). 시맨틱 색은 `base / muted / foreground` 3단 세트로 묶어 뱃지·알림 등을 조합만으로 만들 수 있습니다.
+
+| 그룹   | 토큰                                                                 | 용도                                      |
+| ------ | -------------------------------------------------------------------- | ----------------------------------------- |
+| 브랜드 | `primary` / `primary-hover` / `primary-muted` / `primary-foreground` | 주 브랜드 색, hover, 톤 배경, 전경 텍스트 |
+| 텍스트 | `foreground` / `foreground-secondary` / `foreground-muted`           | 본문 / 서브 / 플레이스홀더                |
+| 표면   | `background` / `surface` / `surface-muted`                           | 페이지 / 카드 / 강조 배경                 |
+| 보더   | `border` / `border-strong`                                           | 일반 / 강조                               |
+| 성공   | `success` / `success-muted` / `success-foreground`                   | 상태 알림·뱃지                            |
+| 경고   | `warning` / `warning-muted` / `warning-foreground`                   | 상태 알림·뱃지                            |
+| 위험   | `danger` / `danger-muted` / `danger-foreground`                      | 상태 알림·뱃지                            |
+| 카카오 | `kakao` / `kakao-foreground`                                         | 카카오 로그인                             |
+
+사용 예:
+
+```tsx
+<button className="bg-primary text-primary-foreground hover:bg-primary-hover">시작하기</button>
+<div className="bg-success-muted text-success-foreground">체크인 완료</div>
+```
+
+### 타이포그래피
+
+- **폰트**: Pretendard 로컬 폰트 통일 (`--font-sans`)
+- **웨이트**: 400 / 500 / 600 / 700 네 단계만 사용
+- `text-body-lg`가 `<body>`에 기본 적용됨
+
+| 토큰            | 크기 | 웨이트 | 용도                      |
+| --------------- | ---- | ------ | ------------------------- |
+| `text-display`  | 34px | 700    | 온보딩·환영 화면 hero     |
+| `text-title`    | 28px | 700    | 화면 최상단 큰 제목       |
+| `text-title-sm` | 22px | 600    | 섹션/카드 헤딩            |
+| `text-body-lg`  | 17px | 500    | 주요 본문·버튼 라벨(기본) |
+| `text-body`     | 15px | 400    | 일반 본문·서브 텍스트     |
+| `text-caption`  | 13px | 400    | 도움말·폼 힌트            |
+| `text-footnote` | 11px | 500    | 뱃지·태그·초소형 라벨     |
+
+<br>
+
 ## 🎉Git Convention
 
 ### 📌 Git Flow
