@@ -1,23 +1,79 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-
-  --color-primary: #2f5dfb;
+  /* 브랜드 */
+  --color-primary: #1f62e5;
+  --color-primary-hover: #2a72f0;
+  --color-primary-muted: #ebf1fe;
   --color-primary-foreground: #ffffff;
 
+  /* 텍스트 */
+  --color-foreground: #1d1d1f;
+  --color-foreground-secondary: #7a7a7a;
+  --color-foreground-muted: #b0b0b3;
+
+  /* 표면 */
+  --color-background: #ffffff;
+  --color-surface: #fafafc;
+  --color-surface-muted: #f5f5f7;
+
+  /* 보더 */
+  --color-border: #e0e0e0;
+  --color-border-strong: #d1d1d4;
+
+  /* 성공 */
+  --color-success: #1f8a5b;
+  --color-success-muted: #e6f4ed;
+  --color-success-foreground: #1f6b47;
+
+  /* 경고 */
+  --color-warning: #f59e0b;
+  --color-warning-muted: #fef3c7;
+  --color-warning-foreground: #b45309;
+
+  /* 위험 */
+  --color-danger: #c8372d;
+  --color-danger-muted: #fbebe9;
+  --color-danger-foreground: #7a1a14;
+
+  /* 카카오 */
   --color-kakao: #fee500;
   --color-kakao-foreground: #191919;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  /* 색상 */
   --color-primary: var(--color-primary);
+  --color-primary-hover: var(--color-primary-hover);
+  --color-primary-muted: var(--color-primary-muted);
   --color-primary-foreground: var(--color-primary-foreground);
+
+  --color-foreground: var(--color-foreground);
+  --color-foreground-secondary: var(--color-foreground-secondary);
+  --color-foreground-muted: var(--color-foreground-muted);
+
+  --color-background: var(--color-background);
+  --color-surface: var(--color-surface);
+  --color-surface-muted: var(--color-surface-muted);
+
+  --color-border: var(--color-border);
+  --color-border-strong: var(--color-border-strong);
+
+  --color-success: var(--color-success);
+  --color-success-muted: var(--color-success-muted);
+  --color-success-foreground: var(--color-success-foreground);
+
+  --color-warning: var(--color-warning);
+  --color-warning-muted: var(--color-warning-muted);
+  --color-warning-foreground: var(--color-warning-foreground);
+
+  --color-danger: var(--color-danger);
+  --color-danger-muted: var(--color-danger-muted);
+  --color-danger-foreground: var(--color-danger-foreground);
+
   --color-kakao: var(--color-kakao);
   --color-kakao-foreground: var(--color-kakao-foreground);
+
   --font-sans: var(--font-pretendard);
 
   /* 타입 스케일 */
@@ -61,8 +117,8 @@
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--color-background);
+  color: var(--color-foreground);
   font-family:
     var(--font-sans),
     -apple-system,
