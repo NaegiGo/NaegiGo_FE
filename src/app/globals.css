@@ -19,6 +19,45 @@
   --color-kakao: var(--color-kakao);
   --color-kakao-foreground: var(--color-kakao-foreground);
   --font-sans: var(--font-pretendard);
+
+  /* 타입 스케일 */
+  /* 프로토타입의 자잘한 폰트(12/14/16/18/26)는 반올림해서 사용하기. */
+  /* (예: 14 → 15로, 26 → 28로) */
+
+  /* 34px, 온보딩·환영 화면 hero */
+  --text-display: 2.125rem;
+  --text-display--line-height: 1.18;
+  --text-display--font-weight: 700;
+
+  /* 28px, 화면 최상단 큰 제목 */
+  --text-title: 1.75rem;
+  --text-title--line-height: 1.22;
+  --text-title--font-weight: 700;
+
+  /* 22px, 섹션/카드 헤딩 */
+  --text-title-sm: 1.375rem;
+  --text-title-sm--line-height: 1.3;
+  --text-title-sm--font-weight: 600;
+
+  /* 17px, 주요 본문·버튼 라벨(기본) */
+  --text-body-lg: 1.0625rem;
+  --text-body-lg--line-height: 1.4;
+  --text-body-lg--font-weight: 500;
+
+  /* 15px, 일반 본문·서브텍스트 */
+  --text-body: 0.9375rem;
+  --text-body--line-height: 1.44;
+  --text-body--font-weight: 400;
+
+  /* 13px, 도움말·폼 힌트 */
+  --text-caption: 0.8125rem;
+  --text-caption--line-height: 1.38;
+  --text-caption--font-weight: 400;
+
+  /* 11px, 뱃지·태그·초소형 라벨 */
+  --text-footnote: 0.6875rem;
+  --text-footnote--line-height: 1.3;
+  --text-footnote--font-weight: 500;
 }
 
 body {
