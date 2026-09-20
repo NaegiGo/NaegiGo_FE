@@ -46,6 +46,13 @@
   --color-kakao: #fee500;
   --color-kakao-foreground: #191919;
 
+  /* 방장 뱃지 */
+  --color-host-muted: #fff6e6;
+  --color-host-foreground: #8a5a00;
+
+  /* 모달 딤 */
+  --color-scrim: rgba(20, 20, 24, 0.45);
+
   /* 아바타 (참여자 구분용 틴트. 인덱스 순서대로 돌려쓰기) */
   --color-avatar-1: #e7ebff;
   --color-avatar-1-foreground: #2a4dcc;
@@ -109,6 +116,11 @@
 
   --color-kakao: var(--color-kakao);
   --color-kakao-foreground: var(--color-kakao-foreground);
+
+  --color-host-muted: var(--color-host-muted);
+  --color-host-foreground: var(--color-host-foreground);
+
+  --color-scrim: var(--color-scrim);
 
   --color-avatar-1: var(--color-avatar-1);
   --color-avatar-1-foreground: var(--color-avatar-1-foreground);
