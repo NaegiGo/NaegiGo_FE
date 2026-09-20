@@ -119,16 +119,17 @@ import { PagePlaceholder } from "@/components/common/PagePlaceholder";
 
 역할 기반 네이밍(`--color-{역할}-{상태}`). 시맨틱 색은 `base / muted / foreground` 3단 세트로 묶어 뱃지·알림 등을 조합만으로 만들 수 있습니다.
 
-| 그룹   | 토큰                                                                 | 용도                                      |
-| ------ | -------------------------------------------------------------------- | ----------------------------------------- |
-| 브랜드 | `primary` / `primary-hover` / `primary-muted` / `primary-foreground` | 주 브랜드 색, hover, 톤 배경, 전경 텍스트 |
-| 텍스트 | `foreground` / `foreground-secondary` / `foreground-muted`           | 본문 / 서브 / 플레이스홀더                |
-| 표면   | `background` / `surface` / `surface-muted`                           | 페이지 / 카드 / 강조 배경                 |
-| 보더   | `border` / `border-strong`                                           | 일반 / 강조                               |
-| 성공   | `success` / `success-muted` / `success-foreground`                   | 상태 알림·뱃지                            |
-| 경고   | `warning` / `warning-muted` / `warning-foreground`                   | 상태 알림·뱃지                            |
-| 위험   | `danger` / `danger-muted` / `danger-foreground`                      | 상태 알림·뱃지                            |
-| 카카오 | `kakao` / `kakao-foreground`                                         | 카카오 로그인                             |
+| 그룹   | 토큰                                                                                        | 용도                                                 |
+| ------ | ------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
+| 브랜드 | `primary` / `primary-hover` / `primary-muted` / `primary-soft` / `primary-foreground`       | 주 브랜드 색, hover, 톤 배경, 포커스 링, 전경 텍스트 |
+| 텍스트 | `foreground` / `foreground-dim` / `foreground-secondary` / `foreground-muted`               | 본문 / 살짝 흐린 본문 / 서브 / 플레이스홀더          |
+| 표면   | `background` / `surface` / `surface-muted` / `surface-dark` (+`-foreground` / `-secondary`) | 페이지 / 카드 / 강조 배경 / 어두운 카드(벌칙)        |
+| 보더   | `border-soft` / `border` / `border-strong`                                                  | 연한 구분선 / 일반 / 강조                            |
+| 성공   | `success` / `success-muted` / `success-foreground`                                          | 상태 알림·뱃지                                       |
+| 경고   | `warning` / `warning-muted` / `warning-foreground`                                          | 상태 알림·뱃지                                       |
+| 위험   | `danger` / `danger-muted` / `danger-foreground`                                             | 상태 알림·뱃지                                       |
+| 카카오 | `kakao` / `kakao-foreground`                                                                | 카카오 로그인                                        |
+| 아바타 | `avatar-1` ~ `avatar-5` (+`-foreground`)                                                    | 참여자 구분 틴트                                     |
 
 사용 예:
 
@@ -137,9 +138,30 @@ import { PagePlaceholder } from "@/components/common/PagePlaceholder";
 <div className="bg-success-muted text-success-foreground">체크인 완료</div>
 ```
 
+> 아바타 틴트는 `bg-avatar-${n}` 처럼 **문자열을 조합하면 Tailwind가 인식하지 못합니다.** 아래처럼 완성된 클래스 문자열을 배열로 두고 인덱스로 꺼내 쓰세요.
+>
+> ```tsx
+> const AVATAR_TINTS = [
+>   "bg-avatar-1 text-avatar-1-foreground",
+>   "bg-avatar-2 text-avatar-2-foreground",
+>   // ...
+> ];
+> ```
+
+### 라운드 · 그림자
+
+| 토큰                                     | 값                     | 용도               |
+| ---------------------------------------- | ---------------------- | ------------------ |
+| `rounded-xs` / `sm` / `md` / `lg` / `xl` | 5 / 8 / 11 / 18 / 22px | 칩·필드·카드·시트  |
+| `rounded-full`                           | Tailwind 기본          | 버튼(pill)·아바타  |
+| `shadow-focus`                           | 4px 브랜드 링          | 인풋 포커스        |
+| `shadow-pop`                             | —                      | 드롭다운·모달 시트 |
+| `shadow-fab`                             | —                      | FAB                |
+
 ### 타이포그래피
 
-- **폰트**: Pretendard 로컬 폰트 통일 (`--font-sans`)
+- **폰트**: Pretendard 로컬 폰트 통일 (`--font-sans`). 별도 mono 폰트는 쓰지 않습니다.
+- **숫자 정렬**: D-day·날짜·글자수 카운터처럼 값이 바뀌며 흔들리는 숫자에는 `tabular-nums` 유틸을 붙입니다.
 - **웨이트**: 400 / 500 / 600 / 700 네 단계만 사용
 - `text-body-lg`가 `<body>`에 기본 적용됨
 

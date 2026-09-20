@@ -5,10 +5,12 @@
   --color-primary: #1f62e5;
   --color-primary-hover: #2a72f0;
   --color-primary-muted: #ebf1fe;
+  --color-primary-soft: rgba(31, 98, 229, 0.08);
   --color-primary-foreground: #ffffff;
 
   /* 텍스트 */
   --color-foreground: #1d1d1f;
+  --color-foreground-dim: #333333;
   --color-foreground-secondary: #7a7a7a;
   --color-foreground-muted: #b0b0b3;
 
@@ -16,8 +18,12 @@
   --color-background: #ffffff;
   --color-surface: #fafafc;
   --color-surface-muted: #f5f5f7;
+  --color-surface-dark: #272729;
+  --color-surface-dark-foreground: #ffffff;
+  --color-surface-dark-secondary: rgba(255, 255, 255, 0.72);
 
   /* 보더 */
+  --color-border-soft: rgba(0, 0, 0, 0.04);
   --color-border: #e0e0e0;
   --color-border-strong: #d1d1d4;
 
@@ -39,6 +45,30 @@
   /* 카카오 */
   --color-kakao: #fee500;
   --color-kakao-foreground: #191919;
+
+  /* 아바타 (참여자 구분용 틴트. 인덱스 순서대로 돌려쓰기) */
+  --color-avatar-1: #e7ebff;
+  --color-avatar-1-foreground: #2a4dcc;
+  --color-avatar-2: #e6f4ed;
+  --color-avatar-2-foreground: #1f6b47;
+  --color-avatar-3: #fbe9e1;
+  --color-avatar-3-foreground: #a2461f;
+  --color-avatar-4: #f1e8fa;
+  --color-avatar-4-foreground: #5c2bb6;
+  --color-avatar-5: #fff4d1;
+  --color-avatar-5-foreground: #8a6500;
+
+  /* 라운드 (pill은 Tailwind 기본 rounded-full 사용) */
+  --radius-xs: 5px;
+  --radius-sm: 8px;
+  --radius-md: 11px;
+  --radius-lg: 18px;
+  --radius-xl: 22px;
+
+  /* 그림자 */
+  --shadow-focus: 0 0 0 4px var(--color-primary-soft);
+  --shadow-pop: 0 10px 28px rgba(0, 0, 0, 0.1), 0 1px 0 rgba(0, 0, 0, 0.04);
+  --shadow-fab: 0 8px 20px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(0, 0, 0, 0.08);
 }
 
 @theme inline {
@@ -46,16 +76,22 @@
   --color-primary: var(--color-primary);
   --color-primary-hover: var(--color-primary-hover);
   --color-primary-muted: var(--color-primary-muted);
+  --color-primary-soft: var(--color-primary-soft);
   --color-primary-foreground: var(--color-primary-foreground);
 
   --color-foreground: var(--color-foreground);
+  --color-foreground-dim: var(--color-foreground-dim);
   --color-foreground-secondary: var(--color-foreground-secondary);
   --color-foreground-muted: var(--color-foreground-muted);
 
   --color-background: var(--color-background);
   --color-surface: var(--color-surface);
   --color-surface-muted: var(--color-surface-muted);
+  --color-surface-dark: var(--color-surface-dark);
+  --color-surface-dark-foreground: var(--color-surface-dark-foreground);
+  --color-surface-dark-secondary: var(--color-surface-dark-secondary);
 
+  --color-border-soft: var(--color-border-soft);
   --color-border: var(--color-border);
   --color-border-strong: var(--color-border-strong);
 
@@ -73,6 +109,29 @@
 
   --color-kakao: var(--color-kakao);
   --color-kakao-foreground: var(--color-kakao-foreground);
+
+  --color-avatar-1: var(--color-avatar-1);
+  --color-avatar-1-foreground: var(--color-avatar-1-foreground);
+  --color-avatar-2: var(--color-avatar-2);
+  --color-avatar-2-foreground: var(--color-avatar-2-foreground);
+  --color-avatar-3: var(--color-avatar-3);
+  --color-avatar-3-foreground: var(--color-avatar-3-foreground);
+  --color-avatar-4: var(--color-avatar-4);
+  --color-avatar-4-foreground: var(--color-avatar-4-foreground);
+  --color-avatar-5: var(--color-avatar-5);
+  --color-avatar-5-foreground: var(--color-avatar-5-foreground);
+
+  /* 라운드 */
+  --radius-xs: var(--radius-xs);
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-xl: var(--radius-xl);
+
+  /* 그림자 */
+  --shadow-focus: var(--shadow-focus);
+  --shadow-pop: var(--shadow-pop);
+  --shadow-fab: var(--shadow-fab);
 
   --font-sans: var(--font-pretendard);
 
