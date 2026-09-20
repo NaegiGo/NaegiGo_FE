@@ -6,6 +6,9 @@
   --color-primary-hover: #2a72f0;
   --color-primary-muted: #ebf1fe;
   --color-primary-soft: rgba(31, 98, 229, 0.08);
+  /* primary를 흰 배경 위에 45% 불투명도로 얹었을 때와 같은 색.
+     비활성 버튼을 반투명 대신 단색으로 칠하려고 둔다. */
+  --color-primary-disabled: #9ab8f3;
   --color-primary-foreground: #ffffff;
 
   /* 텍스트 */
@@ -84,6 +87,7 @@
   --color-primary-hover: var(--color-primary-hover);
   --color-primary-muted: var(--color-primary-muted);
   --color-primary-soft: var(--color-primary-soft);
+  --color-primary-disabled: var(--color-primary-disabled);
   --color-primary-foreground: var(--color-primary-foreground);
 
   --color-foreground: var(--color-foreground);

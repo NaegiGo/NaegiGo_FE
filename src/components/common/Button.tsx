@@ -11,8 +11,10 @@ type ButtonVariant =
   | "kakao";
 
 const VARIANT_CLASS: Record<ButtonVariant, string> = {
+  // 비활성일 때 반투명 대신 단색을 쓴다.
+  // 하단 바처럼 그라데이션 위에 올라가면 반투명 사이로 배경이 비친다.
   primary:
-    "min-h-[50px] rounded-full bg-primary px-[22px] py-3.5 text-body-lg font-semibold text-primary-foreground hover:bg-primary-hover",
+    "min-h-[50px] rounded-full bg-primary px-[22px] py-3.5 text-body-lg font-semibold text-primary-foreground hover:bg-primary-hover disabled:bg-primary-disabled disabled:opacity-100",
   secondary:
     "min-h-[50px] rounded-full bg-surface-muted px-[22px] py-3.5 text-body-lg text-foreground",
   ghost:
