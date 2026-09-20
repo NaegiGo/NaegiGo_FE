@@ -35,3 +35,33 @@ export type Room = {
   /** 종료 · 내 순위 */
   rank?: number;
 };
+
+export type RoomMember = {
+  id: string;
+  name: string;
+  isHost: boolean;
+  isMe: boolean;
+};
+
+/** 방 상세 화면에서 쓰는 정보 */
+export type RoomDetail = {
+  id: string;
+  name: string;
+  status: RoomStatus;
+  goal: string;
+  penalty: string;
+  /** 방 코드 (방장에게만 노출) */
+  code: string;
+  startDate: string;
+  endDate: string;
+  days: number[];
+  method: VerificationMethod;
+  /** 시작까지 남은 일수 */
+  remainingDays: number;
+  hostName: string;
+  /** 내가 방장인지 */
+  isHost: boolean;
+  /** 참여자로서 참여를 확정했는지. 방장은 항상 true */
+  hasJoined: boolean;
+  members: RoomMember[];
+};

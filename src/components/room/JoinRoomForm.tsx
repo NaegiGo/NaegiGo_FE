@@ -4,7 +4,7 @@ import { useState } from "react";
 import { ScreenBody } from "@/components/common/AppShell";
 import { BottomBar } from "@/components/common/BottomBar";
 import { Button } from "@/components/common/Button";
-import { FieldGroup, FieldHelp, FieldLabel } from "@/components/common/Field";
+import { FieldGroup, FieldLabel } from "@/components/common/Field";
 import {
   CodeInput,
   ROOM_CODE_LENGTH,
