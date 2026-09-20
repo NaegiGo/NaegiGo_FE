@@ -41,6 +41,16 @@ describe("Modal", () => {
     expect(onClose).toHaveBeenCalled();
   });
 
+  it("열려 있는 동안 배경 스크롤을 막고, 닫히면 되돌린다", () => {
+    const { rerender } = render(
+      <Modal open onClose={vi.fn()} title="방을 삭제할까요?" />,
+    );
+    expect(document.body.style.overflow).toBe("hidden");
+
+    rerender(<Modal open={false} onClose={vi.fn()} title="방을 삭제할까요?" />);
+    expect(document.body.style.overflow).toBe("");
+  });
+
   it("딤 영역을 클릭하면 dialog를 닫아 onClose로 이어진다", () => {
     const onClose = renderModal(true);
 

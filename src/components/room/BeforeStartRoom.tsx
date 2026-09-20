@@ -1,13 +1,12 @@
 import Link from "next/link";
-import LeaveIcon from "@/assets/icons/leave.svg";
 import SparkleIcon from "@/assets/icons/sparkle.svg";
-import TrashIcon from "@/assets/icons/trash.svg";
 import { ScreenBody } from "@/components/common/AppShell";
-import { Button } from "@/components/common/Button";
 import { Card } from "@/components/common/Card";
 import { Chip } from "@/components/common/Chip";
 import { NavHeader } from "@/components/common/NavHeader";
+import { DeleteRoomButton } from "@/components/room/DeleteRoomButton";
 import { JoinConfirmForm } from "@/components/room/JoinConfirmForm";
+import { LeaveRoomButton } from "@/components/room/LeaveRoomButton";
 import { LockNote } from "@/components/room/LockNote";
 import { MemberList } from "@/components/room/MemberList";
 import { RoomCodeCard } from "@/components/room/RoomCodeCard";
@@ -41,10 +40,7 @@ function HostView({ room }: { room: RoomDetail }) {
         <RoomCodeCard code={room.code} />
         <MemberList members={room.members} />
 
-        {/* TODO: 방 삭제 확인 모달 띄우기 (다음 작업) */}
-        <Button variant="dangerGhost" block className="mt-1">
-          <TrashIcon className="size-4" aria-hidden="true" />방 삭제
-        </Button>
+        <DeleteRoomButton memberCount={room.members.length} />
       </ScreenBody>
     </>
   );
@@ -76,10 +72,7 @@ function JoinedView({ room }: { room: RoomDetail }) {
 
         <MemberList members={room.members} />
 
-        {/* TODO: 방 나가기 확인 모달 띄우기 (다음 작업) */}
-        <Button variant="dangerGhost" block className="mt-1">
-          <LeaveIcon className="size-4" aria-hidden="true" />방 나가기
-        </Button>
+        <LeaveRoomButton />
       </ScreenBody>
     </>
   );

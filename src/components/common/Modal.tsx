@@ -2,6 +2,7 @@
 
 import type { ReactNode } from "react";
 import { useEffect, useId, useRef } from "react";
+import { useScrollLock } from "@/hooks/useScrollLock";
 import { cn } from "@/utils/cn";
 
 type ModalProps = {
@@ -32,6 +33,8 @@ export function Modal({
 }: ModalProps) {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const titleId = useId();
+
+  useScrollLock(open);
 
   useEffect(() => {
     const dialog = dialogRef.current;

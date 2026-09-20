@@ -2,10 +2,13 @@
 
 import { useState } from "react";
 import CheckIcon from "@/assets/icons/check.svg";
+import FlagIcon from "@/assets/icons/flag.svg";
 import { ScreenBody } from "@/components/common/AppShell";
 import { BottomBar } from "@/components/common/BottomBar";
 import { Button } from "@/components/common/Button";
+import { Card } from "@/components/common/Card";
 import { Chip } from "@/components/common/Chip";
+import { Modal } from "@/components/common/Modal";
 import { PenaltyCard } from "@/components/room/PenaltyCard";
 import { RoomRules } from "@/components/room/RoomRules";
 import type { RoomDetail } from "@/types/room";
@@ -13,13 +16,14 @@ import type { RoomDetail } from "@/types/room";
 /** 시작 전 · 참여자 · 아직 참여를 확정하지 않은 상태 */
 export function JoinConfirmForm({ room }: { room: RoomDetail }) {
   const [agreed, setAgreed] = useState(false);
+  const [confirming, setConfirming] = useState(false);
 
   return (
     <form
       className="flex flex-1 flex-col"
       onSubmit={(event) => {
         event.preventDefault();
-        // TODO: 참여 확정 모달 띄우기 (다음 작업)
+        setConfirming(true);
       }}
     >
       <ScreenBody className="flex flex-col gap-4 pt-1">
@@ -59,6 +63,48 @@ export function JoinConfirmForm({ room }: { room: RoomDetail }) {
           참여 확정하기
         </Button>
       </BottomBar>
+
+      <Modal
+        open={confirming}
+        onClose={() => setConfirming(false)}
+        title="정말 참여하시겠어요?"
+        description={
+          <>
+            확정 후엔 취소할 수 없고,
+            <br />
+            종료 시점에 꼴찌가 되면{" "}
+            <strong className="font-semibold">벌칙</strong>을 받게 돼요.
+          </>
+        }
+        actions={
+          <>
+            <Button
+              variant="secondary"
+              className="flex-1"
+              onClick={() => setConfirming(false)}
+            >
+              취소
+            </Button>
+            <Button
+              className="flex-[1.2]"
+              onClick={() => {
+                // TODO: API 연동 시 참여 확정 요청 후 화면 갱신
+                setConfirming(false);
+              }}
+            >
+              참여 확정
+            </Button>
+          </>
+        }
+      >
+        <Card variant="emphasis" className="mt-1 px-3.5 py-3">
+          <div className="mb-1 flex items-center gap-2 text-primary">
+            <FlagIcon className="size-3.5" aria-hidden="true" />
+            <span className="text-caption font-semibold">벌칙</span>
+          </div>
+          <p className="text-body font-semibold">{room.penalty}</p>
+        </Card>
+      </Modal>
     </form>
   );
 }
