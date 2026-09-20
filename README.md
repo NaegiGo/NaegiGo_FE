@@ -46,6 +46,18 @@
 
 <br>
 
+## 🚀 실행 방법
+
+```
+pnpm install   # 의존성 설치 (최초 1회)
+pnpm dev       # 개발 서버 실행 → http://localhost:3000
+```
+
+- Node 버전은 `.nvmrc`(22)를 따릅니다. `nvm use` 로 맞춰주세요.
+- 현재는 환경변수 없이 실행됩니다. 백엔드 API를 붙인 뒤부터 `.env.local`이 필요합니다.
+
+<br>
+
 ## 🧩 Package Manager
 
 - **pnpm 버전**
@@ -96,6 +108,72 @@ import { PagePlaceholder } from "@/components/common/PagePlaceholder";
   - 첫글자는 소문자로 시작, 띄어쓰기는 붙이고 뒷 단어의 시작을 대문자로
     - ex- handleDelete
   - 언더바 사용 X (클래스명은 허용)
+
+<br>
+
+## 🎨 Design Tokens
+
+디자인 토큰은 [src/app/globals.css](src/app/globals.css)의 `:root`와 `@theme inline` 블록에서 관리합니다. 새 색·타이포는 반드시 이곳에 먼저 등록한 뒤 Tailwind 유틸 클래스로 사용합니다.
+
+### 색상
+
+역할 기반 네이밍(`--color-{역할}-{상태}`). 시맨틱 색은 `base / muted / foreground` 3단 세트로 묶어 뱃지·알림 등을 조합만으로 만들 수 있습니다.
+
+| 그룹   | 토큰                                                                                        | 용도                                                 |
+| ------ | ------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
+| 브랜드 | `primary` / `primary-hover` / `primary-muted` / `primary-soft` / `primary-foreground`       | 주 브랜드 색, hover, 톤 배경, 포커스 링, 전경 텍스트 |
+| 텍스트 | `foreground` / `foreground-dim` / `foreground-secondary` / `foreground-muted`               | 본문 / 살짝 흐린 본문 / 서브 / 플레이스홀더          |
+| 표면   | `background` / `surface` / `surface-muted` / `surface-dark` (+`-foreground` / `-secondary`) | 페이지 / 카드 / 강조 배경 / 어두운 카드(벌칙)        |
+| 보더   | `border-soft` / `border` / `border-strong`                                                  | 연한 구분선 / 일반 / 강조                            |
+| 성공   | `success` / `success-muted` / `success-foreground`                                          | 상태 알림·뱃지                                       |
+| 경고   | `warning` / `warning-muted` / `warning-foreground`                                          | 상태 알림·뱃지                                       |
+| 위험   | `danger` / `danger-muted` / `danger-foreground`                                             | 상태 알림·뱃지                                       |
+| 카카오 | `kakao` / `kakao-foreground`                                                                | 카카오 로그인                                        |
+| 아바타 | `avatar-1` ~ `avatar-5` (+`-foreground`)                                                    | 참여자 구분 틴트                                     |
+
+사용 예:
+
+```tsx
+<button className="bg-primary text-primary-foreground hover:bg-primary-hover">시작하기</button>
+<div className="bg-success-muted text-success-foreground">체크인 완료</div>
+```
+
+> 아바타 틴트는 `bg-avatar-${n}` 처럼 **문자열을 조합하면 Tailwind가 인식하지 못합니다.** 아래처럼 완성된 클래스 문자열을 배열로 두고 인덱스로 꺼내 쓰세요.
+>
+> ```tsx
+> const AVATAR_TINTS = [
+>   "bg-avatar-1 text-avatar-1-foreground",
+>   "bg-avatar-2 text-avatar-2-foreground",
+>   // ...
+> ];
+> ```
+
+### 라운드 · 그림자
+
+| 토큰                                     | 값                     | 용도               |
+| ---------------------------------------- | ---------------------- | ------------------ |
+| `rounded-xs` / `sm` / `md` / `lg` / `xl` | 5 / 8 / 11 / 18 / 22px | 칩·필드·카드·시트  |
+| `rounded-full`                           | Tailwind 기본          | 버튼(pill)·아바타  |
+| `shadow-focus`                           | 4px 브랜드 링          | 인풋 포커스        |
+| `shadow-pop`                             | —                      | 드롭다운·모달 시트 |
+| `shadow-fab`                             | —                      | FAB                |
+
+### 타이포그래피
+
+- **폰트**: Pretendard 로컬 폰트 통일 (`--font-sans`). 별도 mono 폰트는 쓰지 않습니다.
+- **숫자 정렬**: D-day·날짜·글자수 카운터처럼 값이 바뀌며 흔들리는 숫자에는 `tabular-nums` 유틸을 붙입니다.
+- **웨이트**: 400 / 500 / 600 / 700 네 단계만 사용
+- `text-body-lg`가 `<body>`에 기본 적용됨
+
+| 토큰            | 크기 | 웨이트 | 용도                      |
+| --------------- | ---- | ------ | ------------------------- |
+| `text-display`  | 34px | 700    | 온보딩·환영 화면 hero     |
+| `text-title`    | 28px | 700    | 화면 최상단 큰 제목       |
+| `text-title-sm` | 22px | 600    | 섹션/카드 헤딩            |
+| `text-body-lg`  | 17px | 500    | 주요 본문·버튼 라벨(기본) |
+| `text-body`     | 15px | 400    | 일반 본문·서브 텍스트     |
+| `text-caption`  | 13px | 400    | 도움말·폼 힌트            |
+| `text-footnote` | 11px | 500    | 뱃지·태그·초소형 라벨     |
 
 <br>
 
@@ -186,14 +264,16 @@ develop ← 작업 브랜치
 ```
 📦NaegiGo_FE
  ┣ 📂public
+ ┃ ┗ 📂images                # next/image로 서빙되는 정적 이미지 (로고 등)
  ┣ 📂src
  ┃ ┣ 📂app
  ┃ ┃ ┣ 📂(auth)            # 로그인 전 화면 (URL에는 영향 없는 라우트 그룹)
  ┃ ┃ ┃ ┣ 📂login            # /login · 카카오 로그인
- ┃ ┃ ┃ ┗ 📂name             # /name · 이름 입력
- ┃ ┃ ┃   ┗ 📂edit            # /name/edit · 이름 수정
+ ┃ ┃ ┃ ┗ 📂name             # /name · 이름 입력 (가입)
  ┃ ┃ ┣ 📂(main)             # 로그인 후 화면
  ┃ ┃ ┃ ┣ 📜page.tsx          # / · 홈 (내 방 목록)
+ ┃ ┃ ┃ ┣ 📂name
+ ┃ ┃ ┃ ┃ ┗ 📂edit            # /name/edit · 이름 수정 (마이페이지)
  ┃ ┃ ┃ ┗ 📂rooms
  ┃ ┃ ┃   ┣ 📂new             # /rooms/new · 새 방 만들기
  ┃ ┃ ┃   ┣ 📂join            # /rooms/join · 방 코드 입력
@@ -203,14 +283,17 @@ develop ← 작업 브랜치
  ┃ ┃ ┣ 📜layout.tsx
  ┃ ┃ ┣ 📜globals.css
  ┃ ┃ ┗ 📜icon.png            # 파비콘 (Next.js 파일 컨벤션)
- ┃ ┣ 📂components
- ┃ ┃ ┗ 📂common              # 여러 화면에서 공통으로 쓰는 UI
- ┃ ┗ 📂fonts
- ┃   ┗ 📂pretendard          # Pretendard 로컬 폰트 (next/font/local)
+ ┃ ┣ 📂assets                 # 디자인 원천 리소스 (아이콘·폰트 등)
+ ┃ ┃ ┣ 📂fonts
+ ┃ ┃ ┃ ┗ 📂pretendard          # Pretendard 로컬 폰트 (next/font/local, 400/500/600/700만 사용)
+ ┃ ┃ ┗ 📂icons                # SVG 아이콘 원본 (SVGR로 컴포넌트처럼 import)
+ ┃ ┗ 📂components
+ ┃   ┗ 📂common              # 여러 화면에서 공통으로 쓰는 UI
  ┣ 📜.editorconfig
  ┣ 📜.env.example
  ┣ 📜.gitignore
  ┣ 📜.lintstagedrc.json
+ ┣ 📜.nvmrc                  # Node 버전 고정
  ┣ 📜.prettierignore
  ┣ 📜.prettierrc.json
  ┣ 📜eslint.config.mjs
@@ -224,9 +307,12 @@ develop ← 작업 브랜치
  ┗ 📜vitest.setup.ts
 ```
 
-- public - 정적 파일 (현재는 비어있고, 필요할 때 추가)
+- public
+  - images - 로고 등 `next/image`로 최적화되는 정적 이미지
 - src
   - app - App Router 진입점, `(auth)`/`(main)` 라우트 그룹별로 화면을 분리
+  - assets - 디자인 원천 리소스
+    - fonts - `next/font/local`로 불러오는 로컬 폰트 (Pretendard)
+    - icons - SVG 아이콘 원본. SVGR로 React 컴포넌트처럼 import해서 Tailwind로 색·크기 제어
   - components - 여러 화면에서 공통으로 쓰는 UI (`common` 등)
-  - fonts - `next/font/local`로 불러오는 로컬 폰트 파일 (Pretendard)
   - (추후 기능이 늘어나면 `hooks`, `apis`, `types`, `utils` 등을 `src` 하위에 추가)
