@@ -58,6 +58,18 @@ describe("ProfileEditPage", () => {
     expect(screen.queryByRole("button", { name: "이름 지우기" })).toBeNull();
   });
 
+  it("이름을 비우면 아바타 이니셜도 사라진다", async () => {
+    const user = userEvent.setup();
+    render(<ProfileEditPage />);
+
+    await user.click(screen.getByRole("button", { name: "이름 지우기" }));
+
+    // 아바타는 aria-hidden이라 DOM으로 확인한다.
+    expect(document.querySelector("[aria-hidden='true']")).toHaveTextContent(
+      "",
+    );
+  });
+
   it("지우기 후에는 이름 입력칸에 포커스가 간다", async () => {
     const user = userEvent.setup();
     render(<ProfileEditPage />);

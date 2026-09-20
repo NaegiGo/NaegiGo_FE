@@ -68,7 +68,7 @@ export function RoomCard({ room }: { room: Room }) {
 
   return (
     <li>
-      <Link href={`/rooms/${room.id}`} className="block">
+      <Link href={`/rooms/${room.id}`} className="focus-ring block rounded-lg">
         <Card
           variant={isEnded ? "soft" : "default"}
           className="flex flex-col gap-2.5"

@@ -30,7 +30,7 @@ export function DayChips({ value, onChange }: DayChipsProps) {
             aria-pressed={selected}
             onClick={() => toggle(day)}
             className={cn(
-              "flex h-10 flex-1 items-center justify-center rounded-[10px] border text-body transition",
+              "focus-ring flex h-10 flex-1 items-center justify-center rounded-[10px] border text-body transition",
               selected
                 ? "border-primary bg-primary font-semibold text-primary-foreground"
                 : "border-border bg-background text-foreground-secondary",

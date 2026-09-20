@@ -191,6 +191,24 @@
   --text-footnote--font-weight: 500;
 }
 
+/* 키보드로 이동했을 때만 보이는 공통 포커스 표시.
+   마우스 클릭에는 나타나지 않는다. */
+@utility focus-ring {
+  &:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+}
+
+/* 내부 요소가 포커스를 받았을 때 바깥 상자에 표시를 준다.
+   입력을 sr-only로 숨기고 라벨을 보여주는 경우에 쓴다. */
+@utility focus-ring-within {
+  &:has(:focus-visible) {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+}
+
 html {
   /* 스크롤바 자리를 항상 비워 둔다.
      모달이 열릴 때 body 스크롤을 막아도 화면이 가로로 튀지 않는다. */

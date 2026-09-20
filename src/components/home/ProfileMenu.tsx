@@ -8,7 +8,7 @@ import { Avatar } from "@/components/common/Avatar";
 import { useEscapeKey } from "@/hooks/useEscapeKey";
 
 const ITEM_CLASS =
-  "flex w-full items-center gap-3 rounded-md px-3.5 py-3 text-left text-body hover:bg-surface-muted";
+  "focus-ring flex w-full items-center gap-3 rounded-md px-3.5 py-3 text-left text-body hover:bg-surface-muted";
 
 type ProfileMenuProps = {
   name: string;
@@ -37,7 +37,7 @@ export function ProfileMenu({ name }: ProfileMenuProps) {
         aria-label="내 프로필"
         onClick={() => setOpen((prev) => !prev)}
         className={[
-          "relative rounded-full",
+          "focus-ring relative rounded-full",
           // 메뉴가 열렸을 때만 딤 위로 올린다.
           // 항상 올리면 FAB를 열었을 때 아바타만 안 흐려진다.
           open && "z-40 ring-[3px] ring-primary-muted",

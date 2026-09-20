@@ -7,7 +7,7 @@ import PlusIcon from "@/assets/icons/plus.svg";
 import { useEscapeKey } from "@/hooks/useEscapeKey";
 
 const ACTION_CLASS =
-  "inline-flex min-h-12 items-center justify-center rounded-full bg-background px-5 text-body font-semibold whitespace-nowrap shadow-[0_8px_24px_rgba(0,0,0,0.14),0_0_0_1px_rgba(0,0,0,0.04)]";
+  "focus-ring inline-flex min-h-12 items-center justify-center rounded-full bg-background px-5 text-body font-semibold whitespace-nowrap shadow-[0_8px_24px_rgba(0,0,0,0.14),0_0_0_1px_rgba(0,0,0,0.04)]";
 
 export function HomeFab() {
   const [open, setOpen] = useState(false);
@@ -60,7 +60,7 @@ export function HomeFab() {
           aria-label={open ? "방 추가 메뉴 닫기" : "방 추가 메뉴 열기"}
           onClick={() => setOpen((prev) => !prev)}
           className={[
-            "pointer-events-auto inline-flex size-14 items-center justify-center rounded-full text-white shadow-fab transition",
+            "focus-ring pointer-events-auto inline-flex size-14 items-center justify-center rounded-full text-white shadow-fab transition",
             open ? "mt-1.5 bg-foreground" : "bg-primary",
           ].join(" ")}
         >

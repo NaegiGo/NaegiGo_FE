@@ -30,7 +30,7 @@ export function NavHeader({
           type="button"
           aria-label="뒤로 가기"
           onClick={() => router.back()}
-          className="flex size-11 items-center justify-center text-primary"
+          className="focus-ring flex size-11 items-center justify-center rounded-full text-primary"
         >
           <BackIcon className="size-6" />
         </button>

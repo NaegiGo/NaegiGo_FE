@@ -52,7 +52,7 @@ export function Button({
       className={cn(
         "inline-flex cursor-pointer items-center justify-center gap-2 whitespace-nowrap transition active:scale-[0.97]",
         "disabled:cursor-not-allowed disabled:opacity-45 disabled:active:scale-100",
-        "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary",
+        "focus-ring",
         VARIANT_CLASS[variant],
         size === "sm" && SIZE_SM_CLASS,
         block && "flex w-full",

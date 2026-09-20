@@ -69,7 +69,9 @@ export default function ProfileEditPage() {
           {/* flex로 감싸 아바타가 줄 박스에 얹히지 않게 한다. */}
           <div className="relative flex">
             <Avatar
-              name={name || CURRENT_NAME}
+              // 편집 중인 값을 그대로 보여준다.
+              // 이전 이름으로 되돌리면 지운 상태가 안 지워진 것처럼 보인다.
+              name={name}
               src={photoUrl ?? undefined}
               className="size-21 text-title"
             />
@@ -85,7 +87,7 @@ export default function ProfileEditPage() {
               type="button"
               aria-label="사진 등록"
               onClick={() => fileInputRef.current?.click()}
-              className="absolute -right-0.5 -bottom-0.5 flex size-[30px] items-center justify-center rounded-full border border-border bg-background shadow-[0_2px_8px_rgba(0,0,0,0.10)]"
+              className="focus-ring absolute -right-0.5 -bottom-0.5 flex size-[30px] items-center justify-center rounded-full border border-border bg-background shadow-[0_2px_8px_rgba(0,0,0,0.10)]"
             >
               <CameraIcon className="size-4" aria-hidden="true" />
             </button>
@@ -115,7 +117,7 @@ export default function ProfileEditPage() {
                 type="button"
                 aria-label="이름 지우기"
                 onClick={clearName}
-                className="absolute top-1/2 right-3 flex size-[22px] -translate-y-1/2 items-center justify-center rounded-full bg-foreground-muted text-background"
+                className="focus-ring absolute top-1/2 right-3 flex size-[22px] -translate-y-1/2 items-center justify-center rounded-full bg-foreground-muted text-background"
               >
                 <CloseIcon className="size-3.5" aria-hidden="true" />
               </button>

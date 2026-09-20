@@ -23,7 +23,7 @@ function HostView({ room }: { room: RoomDetail }) {
         right={
           <Link
             href={`/rooms/${room.id}/edit`}
-            className="px-3.5 py-2 text-body-lg text-primary"
+            className="focus-ring rounded-sm px-3.5 py-2 text-body-lg text-primary"
           >
             수정
           </Link>
