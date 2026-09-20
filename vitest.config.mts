@@ -9,7 +9,18 @@ export default defineConfig({
   plugins: [
     react(),
     svgr({
-      svgrOptions: { replaceAttrValues: { "#1D1D1F": "currentColor" } },
+      // next.config.ts의 turbopack SVGR 설정과 같은 값을 유지할 것.
+      svgrOptions: {
+        replaceAttrValues: { "#1D1D1F": "currentColor" },
+        svgoConfig: {
+          plugins: [
+            {
+              name: "preset-default",
+              params: { overrides: { removeViewBox: false } },
+            },
+          ],
+        },
+      },
       include: "**/*.svg",
     }),
   ],

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { ScreenBody } from "@/components/common/AppShell";
-import { Avatar } from "@/components/common/Avatar";
+import { HomeFab } from "@/components/home/HomeFab";
+import { ProfileMenu } from "@/components/home/ProfileMenu";
 import { RoomCard } from "@/components/home/RoomCard";
 import { MOCK_ROOMS } from "@/mocks/rooms";
 
@@ -19,10 +20,8 @@ export default function HomePage() {
           height={24}
           priority
         />
-        {/* TODO: 프로필 메뉴 열기 (다음 작업) */}
-        <button type="button" aria-label="내 프로필">
-          <Avatar name="미니" size="lg" />
-        </button>
+        {/* TODO: API 연동 시 로그인한 사용자 이름으로 교체 */}
+        <ProfileMenu name="미니" />
       </div>
 
       <div className="mb-3 flex items-center gap-2">
@@ -37,12 +36,14 @@ export default function HomePage() {
           아직 참여 중인 방이 없어요
         </p>
       ) : (
-        <ul className="flex flex-col gap-3">
+        <ul className="flex flex-col gap-3 pb-32">
           {rooms.map((room) => (
             <RoomCard key={room.id} room={room} />
           ))}
         </ul>
       )}
+
+      <HomeFab />
     </ScreenBody>
   );
 }

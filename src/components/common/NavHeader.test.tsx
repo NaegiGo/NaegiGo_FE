@@ -41,4 +41,16 @@ describe("NavHeader", () => {
 
     expect(path).toHaveAttribute("stroke", "currentColor");
   });
+
+  // viewBox가 없으면 CSS로 크기를 줄일 때 아이콘이 축소되지 않고 잘린다.
+  // 이 테스트는 vitest.config.mts의 svgr 설정만 지켜준다.
+  // 실제 화면에 쓰이는 next.config.ts 설정도 같이 맞춰 둬야 한다.
+  it("아이콘은 크기를 줄여도 잘리지 않도록 viewBox를 유지한다", () => {
+    const { container } = render(<NavHeader back />);
+
+    expect(container.querySelector("svg")).toHaveAttribute(
+      "viewBox",
+      "0 0 24 24",
+    );
+  });
 });
