@@ -1,4 +1,4 @@
-import type { VerificationMethod } from "@/types/room";
+import type { RoomDetail, VerificationMethod } from "@/types/room";
 
 export const ROOM_NAME_MAX_LENGTH = 20;
 
@@ -62,4 +62,17 @@ export function validateRoomForm(values: RoomFormValues): RoomFormErrors {
 
 export function isRoomFormValid(values: RoomFormValues) {
   return Object.keys(validateRoomForm(values)).length === 0;
+}
+
+/** 방 상세 데이터를 수정 폼의 초기값으로 바꾼다. */
+export function toRoomFormValues(room: RoomDetail): RoomFormValues {
+  return {
+    name: room.name,
+    goal: room.goal,
+    startDate: room.startDate,
+    endDate: room.endDate,
+    days: room.days,
+    method: room.method,
+    penalty: room.penalty,
+  };
 }
