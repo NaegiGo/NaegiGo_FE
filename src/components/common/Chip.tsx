@@ -29,7 +29,7 @@ export function Chip({
   return (
     <span
       className={cn(
-        "inline-flex h-[22px] items-center gap-1.5 rounded-full px-2.5 text-caption font-semibold leading-none whitespace-nowrap",
+        "inline-flex h-[25px] items-center gap-1.5 rounded-full px-2.5 text-caption font-semibold leading-none whitespace-nowrap",
         TONE_CLASS[tone],
         className,
       )}

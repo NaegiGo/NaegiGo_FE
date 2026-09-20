@@ -48,14 +48,11 @@ export function Modal({
     <dialog
       ref={dialogRef}
       aria-labelledby={titleId}
-      onCancel={(event) => {
-        // Esc는 기본 닫기 대신 상위 상태를 통해 닫는다.
-        event.preventDefault();
-        onClose();
-      }}
+      // Esc·딤 클릭·프로그램적 close 등 모든 닫힘이 close 이벤트로 모인다.
+      onClose={onClose}
       onClick={(event) => {
         // 시트 바깥(딤) 클릭으로 닫기
-        if (event.target === dialogRef.current) onClose();
+        if (event.target === dialogRef.current) dialogRef.current.close();
       }}
       className={cn(
         "m-auto w-[calc(100%-40px)] max-w-[350px] bg-transparent p-0 text-foreground",

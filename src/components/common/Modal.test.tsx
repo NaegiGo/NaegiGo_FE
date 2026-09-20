@@ -31,19 +31,17 @@ describe("Modal", () => {
     ).toBeInTheDocument();
   });
 
-  // Esc를 누르면 브라우저가 dialog에 cancel 이벤트를 쏜다.
-  // jsdom은 그 기본 동작이 없으므로, 이벤트가 왔을 때의 배선만 확인한다.
-  it("cancel 이벤트(Esc)를 받으면 onClose가 호출된다", () => {
+  // Esc를 누르면 브라우저가 dialog를 닫고 close 이벤트를 쏜다.
+  // jsdom에는 그 기본 동작이 없으므로, close가 왔을 때의 배선만 확인한다.
+  // (Esc 자체는 실제 브라우저에서 확인해야 한다.)
+  it("dialog가 close 이벤트를 내면 onClose가 호출된다", () => {
     const onClose = renderModal(true);
 
-    fireEvent(
-      screen.getByRole("dialog"),
-      new Event("cancel", { bubbles: false, cancelable: true }),
-    );
+    fireEvent(screen.getByRole("dialog"), new Event("close"));
     expect(onClose).toHaveBeenCalled();
   });
 
-  it("딤 영역을 클릭하면 onClose가 호출된다", () => {
+  it("딤 영역을 클릭하면 dialog를 닫아 onClose로 이어진다", () => {
     const onClose = renderModal(true);
 
     fireEvent.click(screen.getByRole("dialog"));
