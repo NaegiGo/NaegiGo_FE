@@ -46,6 +46,18 @@
 
 <br>
 
+## 🚀 실행 방법
+
+```
+pnpm install   # 의존성 설치 (최초 1회)
+pnpm dev       # 개발 서버 실행 → http://localhost:3000
+```
+
+- Node 버전은 `.nvmrc`(22)를 따릅니다. `nvm use` 로 맞춰주세요.
+- 현재는 환경변수 없이 실행됩니다. 백엔드 API를 붙인 뒤부터 `.env.local`이 필요합니다.
+
+<br>
+
 ## 🧩 Package Manager
 
 - **pnpm 버전**
@@ -235,10 +247,11 @@ develop ← 작업 브랜치
  ┃ ┣ 📂app
  ┃ ┃ ┣ 📂(auth)            # 로그인 전 화면 (URL에는 영향 없는 라우트 그룹)
  ┃ ┃ ┃ ┣ 📂login            # /login · 카카오 로그인
- ┃ ┃ ┃ ┗ 📂name             # /name · 이름 입력
- ┃ ┃ ┃   ┗ 📂edit            # /name/edit · 이름 수정
+ ┃ ┃ ┃ ┗ 📂name             # /name · 이름 입력 (가입)
  ┃ ┃ ┣ 📂(main)             # 로그인 후 화면
  ┃ ┃ ┃ ┣ 📜page.tsx          # / · 홈 (내 방 목록)
+ ┃ ┃ ┃ ┣ 📂name
+ ┃ ┃ ┃ ┃ ┗ 📂edit            # /name/edit · 이름 수정 (마이페이지)
  ┃ ┃ ┃ ┗ 📂rooms
  ┃ ┃ ┃   ┣ 📂new             # /rooms/new · 새 방 만들기
  ┃ ┃ ┃   ┣ 📂join            # /rooms/join · 방 코드 입력
